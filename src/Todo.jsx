@@ -70,20 +70,23 @@ const Todo = () => {
           <>
             <li
               key={index}
-              className="flex  h-20 bg-white shadow-2xl w-[90%] justify-between items-center  rounded-md ml-6 mt-4 md:w-[40%] md:m-auto"
+              className="flex  h-30 bg-white shadow-2xl w-[90%] justify-between items-center  rounded-md ml-6 mt-4 md:w-[40%] md:m-auto"
             >
               {todo.edit ? (
-                <input
-                  className="h-7 border rounded-md  text-center shadow-2xl font-bold w-40"
-                  type="text"
-                  name=""
-                  id=""
-                  defaultValue={todo.text}
-                  onChange={(e) => setEditText(e.target.value)}
-                />
+                <div
+              
+                 contentEditable
+                suppressContentEditableWarning={true}
+                className="h-[60%] border rounded-md text-center shadow-2xl font-bold w-[60%] break-words outline-none overflow-auto"
+                onInput={(e) => setEditText(e.currentTarget.innerText)}
+                onFocus={(e) => {
+                 
+                  e.currentTarget.innerText = todo.text;
+                  setEditText(todo.text);
+                }}></div>
               ) : (
                 <div
-                  className=" w-40  text-center rounded-md h-7 shadow-2xl font-bold "
+                  className="  text-center rounded-md h-[80%] shadow-2xl font-bold w-[60%]  resize-none overflow-y-scroll overflow-x-hidden overflow-auto"
                   style={{
                     textDecoration: todo.complete ? "line-through" : "none",
                   }}
