@@ -70,7 +70,7 @@ const Todo = () => {
           <>
             <li
               key={index}
-              className="flex  h-20 bg-white shadow-2xl w-[90%] justify-between items-center  rounded-md ml-6 mt-4"
+              className="flex  h-20 bg-white shadow-2xl w-[90%] justify-between items-center  rounded-md ml-6 mt-4 md:w-[40%] md:m-auto"
             >
               {todo.edit ? (
                 <input
